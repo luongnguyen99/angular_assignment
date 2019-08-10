@@ -1,0 +1,92 @@
+<header class="header" id="header">
+        <div class="header__content"><a class="header-mobile__button disabled"><img src="assets/images/bar.svg" alt="bar icon"/></a>
+          <div class="header__logo"><a href="index.html"><img src="assets/images/TopBar_Banner/aoifoods_logo.png" alt="logo"/></a></div>
+          <div class="container mobile-hidden">
+            <div class="row">
+              <div class="col-12">
+                <div class="header__menu">
+                    <ul class="list-inline text-center">
+                        <li><a routerLink="/" routerLinkActive>Trang chủ</a></li>
+                       
+                        <li>
+                            <a>Sản phẩm<i class="fa fa-angle-down"></i></a>
+                           
+                            <ul class="sub-menu">
+                                <li *ngFor="let category of categories"><a routerLink="/category/{{category.id}}" routerLinkActive>{{category.name}}</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li><a routerLink="/about" routerLinkActive>Giới thiệu</a></li>
+                        <li><a routerLink="/contact" routerLinkActive>Liên hệ</a></li>
+                        <li><a routerLink="/manager" routerLinkActive>Quản trị</a></li>
+                    </ul>
+                 <!-- <ul class="list-inline text-center">
+                    <li><a routerLink="/">Trang chủ</a></li>
+                    <li><a routerLink="/product">Sản phẩm<i class="fa fa-angle-down"></i></a>
+                      <ul class="drop-menu">
+                        <li><a href="shop.html">Sản phẩm mới</a></li>
+                        <li><a href="shop.html">Sản phẩm bán chạy</a></li>
+                        <li><a href="shop.html">Sản phẩm hot nhất</a></li>
+                        <li><a href="shop.html">Thịt &#38; xúc xích</a></li>
+                        <li><a href="shop.html">Rau củ hữu cơ</a></li>
+                        <li><a href="shop.html">Hoa quả đặc sản</a></li>
+                      </ul>
+                    </li>
+                    
+                    <li><a routerLink="/about">Giới thiệu</a></li>
+                    <li><a routerLink="/contact">Liên hệ</a></li>
+                    <li><a routerLink="/manager">Quản trị</a></li>
+                  </ul>  -->
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header__social mobile-hidden">
+            <ul class="list-inline text-right">
+              <li>Fanpage _</li>
+              <li><a href="https://www.instagram.com/"><img src="assets/images/TopBar_Banner/instagram.png" alt="instagram"/></a></li>
+              <li><a href="https://www.facebook.com/"><img src="assets/images/TopBar_Banner/facebook.png" alt="facebook"/></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mobile-menu">
+          <div class="mobile-menu__bg"></div>
+          <div class="mobile-menu__content">
+            <div class="mobile-menu__top">
+              <p>Menu</p>
+              <div class="mobile-menu__top--button"><a class="mobile-close" href="">X</a></div>
+            </div>
+            <div class="mobile-menu__content2">
+              <ul>
+                <li><a href="index.html"><span>Trang chủ</span></a></li>
+                <li><a href="shop.html">
+                    <div class="row">
+                      <div class="col-10"><span>Sản phẩm</span></div>
+                      <div class="col-2 text-right icon">
+                        <div class="button-menu"><img src="assets/images/angle-right.svg" alt="angle right"/></div>
+                      </div>
+                    </div></a>
+                  <ul class="sub-menu">
+                    <li><a href="">Sản phẩm mới</a></li>
+                    <li><a href="">Sản phẩm bán chạy</a></li>
+                    <li><a href="">Sản phẩm hot nhất</a></li>
+                    <li><a href="">Thịt &#38; xúc xích</a></li>
+                    <li><a href="">Rau củ hữu cơ</a></li>
+                    <li><a href="">Hoa quả đặc sản</a></li>
+                  </ul>
+                </li>
+                <li><a href="about-us.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+                <li><a href="blog.html">Tin tức</a></li>
+              </ul>
+            </div>
+            <div class="mobile-menu__social">
+              <ul class="list-inline">
+                <li><a href="https://www.facebook.com/">Facebook</a></li>
+                <li><a href="https://www.instagram.com/">Instagram</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </header>

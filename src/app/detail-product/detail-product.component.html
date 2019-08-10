@@ -1,0 +1,82 @@
+
+    <div class="connect-me">
+        <div class="phone"><a href="tel:0963203338"><img src="assets/images/TopBar_Banner/call.png" alt="phone img"/></a></div>
+        <div class="message"><a href="#"><img src="assets/images/TopBar_Banner/chat.png" alt="message img"/></a></div>
+      </div>
+      <div class="shop" id="shop">
+        <div class="blog__breadcrumb">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="blog__breadcrumb--content">
+                  <div class="blog__breadcrumb--title border-tree">
+                    <p class="title-base">{{product.name}}</p>
+                  </div>
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <!-- <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li> -->
+                      <!-- <li class="breadcrumb-item active" aria-current="page">Toàn bộ sản phẩm</li> -->
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="shop__content">
+          <div class="container">
+            <div class="row">
+              
+              <div class="col-12">
+                <div class="shop__main">
+                  <div class="shop__main--top">
+                   
+                
+                    <div class="row">
+
+                      <div class="col-xl-6 col-sm-6 col-12">
+                          
+                        <div class="">
+                          <div class="hot-product-item__img text-center"><img src="{{product.img}}" alt="group product image"/>
+                            
+                          </div>
+                          <div class="hot-product-item__content">
+                            <div class="hot-product-item__content--title"></div>
+                            <div class="hot-product-item__content--price">
+                              <!-- <p>{{product.price}}<sup>đ</sup></p> -->
+                            </div>
+                          </div>
+                        </div>
+                       
+                      </div>
+                      <div class="col-xl-6 col-sm-6 col-12">
+                           
+                          
+                        
+                            <div class="hot-product-item__content">
+                              <div class="hot-product-item__content--title">
+                                  <a>Name: {{product.name}}</a></div>
+                              <div class="hot-product-item__content--price">
+                                <p>Price: {{product.price}}<sup>đ</sup></p>
+                              </div>
+                              <div class="hot-product-item__content--title">
+                                    <a>Description: {{product.description}}</a>
+                            </div>
+                            <div class="hot-product-item__content--title">
+                                    <a>Status: {{ product.status ? 'Còn hàng' : 'Hết hàng' }}</a>
+                            </div>
+                             
+                            
+                    </div>
+                         
+                        </div>
+                   
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
