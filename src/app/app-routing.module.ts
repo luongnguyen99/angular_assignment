@@ -9,6 +9,8 @@ import { ManagerComponent } from './manager/manager.component';
 import { CategoryComponent } from './category/category.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { CategoryManagerComponent } from './category-manager/category-manager.component';
+import { ProductManagerComponent} from './product-manager/product-manager.component';
+
 
 
 
@@ -20,7 +22,7 @@ const routes: Routes = [
   {path:'about', component: AboutComponent},
   {path:'manager', component: ManagerComponent},
   {path:'manager-categories', component: CategoryManagerComponent},
-  {path:'manager-products', component: CategoryManagerComponent},
+  {path:'manager-products', component: ProductManagerComponent},
 
   //category
   {path:'category/:id', component: CategoryComponent},

@@ -18,6 +18,7 @@ export class ProductService {
   getCategories(): Observable<CategoryType[]>{
     return this.http.get<CategoryType[]>(`${this.API}/categories`);
   };
+  
   getCategory(id): Observable<CategoryType[]>{
     return this.http.get<CategoryType[]>(`${this.API}/categories/${id}`);
   };
@@ -36,29 +37,27 @@ export class ProductService {
   // end category
 
   getProducts(id): Observable<ProductType[]>{
-      return this.http.get<ProductType[]>(`${this.API}/categories/${id}/products`);
+    return this.http.get<ProductType[]>(`${this.API}/categories/${id}/products?orderby=id&order=asc`);
   }
 
   getProduct(id,product_id): Observable<ProductType[]>{
     return this.http.get<ProductType[]>(`${this.API}/categories/${id}/products/${product_id}`);
   }
 
-  deleteProduct(id): Observable<ProductType[]>{
-    return this.http.delete<ProductType[]>(`${this.API}/products/${id}`);
+  editProduct(product): Observable<ProductType> {
+    
+    return this.http.put<ProductType>(`${this.API}/categories/${product.categoryId}/products/${product.id}`, product);
+  }
+
+  deleteProduct(product): Observable<ProductType[]>{
+    return this.http.delete<ProductType[]>(`${this.API}/categories/${product.categoryId}/products/${product.id}`);
     
   }
  
-  editProduct(product): Observable<ProductType>{
-    return this.http.put<ProductType>(`${this.API}/products/${product.id}`, product)
-  }
-  addProduct(product):Observable<ProductType>{
-    return this.http.post<ProductType>(`${this.API}/products`, product)
-    // console.log(product);
-    //   const newProduct = {
-    //       id: this.products.length + 1,
-    //        ...product
-    //       }
-    //   this.products.push(newProduct)
+  
+  addProduct(product): Observable<ProductType> {
+    return this.http.post<ProductType>(`${this.API}/categories/${product.categoryId}/products`, product);
+
   }
   
 }

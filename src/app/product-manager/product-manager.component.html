@@ -1,1 +1,169 @@
-<p>product-manager works!</p>
+<div style="padding-bottom:200px">
+    <div class="blog__breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="blog__breadcrumb--content">
+                        <div class="blog__breadcrumb--title border-tree">
+                            <p class="title-base">Quản trị</p>
+                        </div>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Quản trị</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-top:5%">
+        <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2"
+            style="background-color: #39451e;color: white;border-color:#39451e">Add</a>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name Product</th>
+                    <th scope="col">Name Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Img</th>
+                    <th scope="col">Status</th>
+
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let product of products">
+                    <th scope="row">{{product.id}}</th>
+                    <td><a>{{product.name}}</a></td>
+                    <td><span
+                            *ngFor="let category of categories">{{product.categoryId == category.id ? category.name : ''}}</span>
+                    </td>
+                    <td><a>{{product.price}}đ</a></td>
+                    <td><a>{{product.description}}</a></td>
+                    <td><img src="{{product.img}}"></td>
+                    <td><a>{{product.status ? 'in stock' : 'out of stock'}}</a></td>
+                    <td>
+                        <a class="btn btn-primary edit" (click)="getProductCurrent(product)" data-toggle="modal"
+                            data-target="#exampleModal">
+                            Edit
+                        </a>
+                        <a class="btn btn-danger" (click)="deleteProduct(product)">
+                            Delete
+                        </a>
+
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" style="margin-top:150px">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" *ngIf="selectedProduct">
+                <div class="form-group">
+                    <label for="">Product Name</label>
+                    <input type="text" [(ngModel)]="selectedProduct.name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Category</label>
+                    <select name="categoryId" id="categoryId" class="form-control"
+                        [(ngModel)]="selectedProduct.categoryId">
+                        <option *ngFor="let category of categories" value="{{category.id}}"
+                            ng-selected="selectedProduct.categoryId">
+                            <p> {{category.name}}</p>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="">Price</label>
+                    <input type="number" [(ngModel)]="selectedProduct.price" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Description</label>
+                    <input type="text" [(ngModel)]="selectedProduct.description" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Status</label>
+                    <select name="status" id="status" class="form-control" [(ngModel)]="selectedProduct.status">
+                        <option [ngValue]="true" ng-selected="selectedProduct.status">In stock
+                        <option [ngValue]="false" ng-selected="selectedProduct.status">Out of stock
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary closeCategory" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary saveCategory" (click)="saveProduct(selectedProduct)">Save
+                    changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:150px">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body"> 
+                    <div class="form-group">
+                        <label for="">Product Name</label>
+                        <input type="text" name="namenew" [(ngModel)]="productNew.name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Category</label>
+                        <select name="categoryIdnew" class="form-control" [(ngModel)]="productNew.categoryId">
+                            <option *ngFor="let category of categories" value="{{category.id}}">
+                                <p> {{category.name}}</p>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="">Price</label>
+                        <input type="number" name="pricenew" [(ngModel)]="productNew.price" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Description</label>
+                        <input type="text" name="descriptionnew" [(ngModel)]="productNew.description" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Status</label>
+                        <select name="statusnew" class="form-control" [(ngModel)]="productNew.status">
+                            <option [ngValue]="true">In stock
+                            <option [ngValue]="false">Out of stock
+                        </select>
+                    </div>
+                </div> 
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary closeCategory" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary saveCategory" (click)="addProduct(productNew)">Save
+                        changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>  

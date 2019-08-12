@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryType } from '../CategoryType';
+import { ProductType } from '../ProductType';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from "../services/product.service";
@@ -11,8 +12,11 @@ import { ProductService } from "../services/product.service";
   styleUrls: ['./category-manager.component.scss']
 })
 export class CategoryManagerComponent implements OnInit {
+  products: ProductType[] = new Array();
   categories: CategoryType[];
   selectCategory: CategoryType[];
+
+
   categoryNew : CategoryType = new CategoryType();
   constructor(
     private productService: ProductService,
@@ -22,6 +26,7 @@ export class CategoryManagerComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories();
+    
   
   }
 
@@ -31,14 +36,14 @@ export class CategoryManagerComponent implements OnInit {
       return this.categories = data;
     })
   }
-
+  
   getId(category){
     return this.selectCategory = category;
   }
 
   saveCategory(selectCategory){
     this.productService.editCategory(selectCategory).subscribe( data => {
-      this.router.navigateByUrl('/manager-categories');
+      // alert('Save success');
     })
   }
 
@@ -53,6 +58,7 @@ export class CategoryManagerComponent implements OnInit {
 
   saveAddCategory(){
     this.productService.addCategory(this.categoryNew).subscribe( data =>{
+      console.log(data);
       this.categories.push(data);
     })
   }
