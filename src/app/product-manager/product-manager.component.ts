@@ -12,8 +12,10 @@ import { ProductService } from "../services/product.service";
 })
 export class ProductManagerComponent implements OnInit {
   products : ProductType[] = new Array();
-  selectedProduct: ProductType[];
 
+  products_sort: ProductType[] = new Array();
+  selectedProduct: ProductType[];
+  
   categories: CategoryType[];
 
   productNew: ProductType = new ProductType();
@@ -27,7 +29,7 @@ export class ProductManagerComponent implements OnInit {
     this.getAllProduct();
     this.getCategories();
     
-    // console.log(this.products);
+    this.products = this.products_sort;
   }
  
   // lay tat ca product
@@ -42,7 +44,10 @@ export class ProductManagerComponent implements OnInit {
           data.forEach(element => {
             
             // this.products[i] = element;
-            this.products.push(element);
+            this.products_sort.push(element);
+            this.products_sort.sort(function (a, b) {
+              return a.id - b.id || a.name.localeCompare(b.name);
+            });
             i++;
           });  
         })
