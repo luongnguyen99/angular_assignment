@@ -71,14 +71,16 @@ export class ProductManagerComponent implements OnInit {
   
   deleteProduct(product){
     this.productService.deleteProduct(product).subscribe(data =>{
-      console.log('delete success');
       this.products = this.products.filter(item => item.id != product.id);
+      // alert('Xóa thành công');
     })
   }
 
   addProduct(product){
     this.productService.addProduct(product).subscribe(data =>{
       this.products.push(data);
+      // alert('Thêm thành công');
+
     })
   }
 }

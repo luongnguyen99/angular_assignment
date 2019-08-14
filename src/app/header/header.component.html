@@ -6,19 +6,19 @@
               <div class="col-12">
                 <div class="header__menu">
                     <ul class="list-inline text-center">
-                        <li><a routerLink="/" routerLinkActive>Trang chủ</a></li>
+                        <li><a routerLinkActive="active" routerLink="/home">Trang chủ</a></li>
                        
-                        <li>
+                        <li routerLinkActive="active"  style="color:#39451e">
                             <a>Sản phẩm<i class="fa fa-angle-down"></i></a>
                            
                             <ul class="sub-menu">
-                                <li *ngFor="let category of categories"><a routerLink="/category/{{category.id}}" routerLinkActive>{{category.name}}</a></li>
+                                <li *ngFor="let category of categories"><a routerLinkActive="active" routerLink="/category/{{category.id}}">{{category.name}}</a></li>
                                 
                             </ul>
                         </li>
-                        <li><a routerLink="/about" routerLinkActive>Giới thiệu</a></li>
-                        <li><a routerLink="/contact" routerLinkActive>Liên hệ</a></li>
-                        <li><a routerLink="/manager" routerLinkActive>Quản trị</a></li>
+                        <li><a routerLinkActive="active" routerLink="/about">Giới thiệu</a></li>
+                        <li><a routerLinkActive="active" routerLink="/contact">Liên hệ</a></li>
+                        <li><a routerLinkActive="active" routerLink="/manager">Quản trị</a></li>
                     </ul>
                  <!-- <ul class="list-inline text-center">
                     <li><a routerLink="/">Trang chủ</a></li>

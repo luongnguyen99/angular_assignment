@@ -37,7 +37,7 @@ export class ProductService {
   // end category
 
   getProducts(id): Observable<ProductType[]>{
-    return this.http.get<ProductType[]>(`${this.API}/categories/${id}/products?orderby=id&order=asc`);
+    return this.http.get<ProductType[]>(`${this.API}/categories/${id}/products?sortBy=id&order=desc`);
   }
 
   getProduct(id,product_id): Observable<ProductType[]>{
