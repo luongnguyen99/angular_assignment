@@ -36,7 +36,7 @@
                       <div *ngFor="let product of products" class="col-xl-3 col-sm-6 col-12">
                         <div class="hot-product-item hot-product-item-wrap">
                           <div class="hot-product-item__img text-center"><img src="{{product.img}}" alt="group product image"/>
-                            <div class="hot-product-item__img--bg"><a routerLink="{{href}}/products/{{product.id}}"><img src="assets/images/sanphamnoibat/buybt.png" alt="button buy"/></a></div>
+                            <div class="hot-product-item__img--bg"><a routerLink="{{href}}/product/{{product.id}}"><img src="assets/images/sanphamnoibat/buybt.png" alt="button buy"/></a></div>
                           </div>
                           <div class="hot-product-item__content">
                             <div class="hot-product-item__content--title"><a href="{{href}}/products/{{product.id}}">{{product.name}}</a></div>

@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    <div class="container" style="padding-top:5%">
+     <div class="container" style="padding-top:5%"> 
         <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2" style="background-color: #39451e;color: white;border-color:#39451e">Add</a>
         <table class="table">
             <thead class="thead-dark">
@@ -34,7 +34,10 @@
                     <th scope="row">{{category.id}}</th>
                     <td><a>{{category.name}}</a></td>
                     <td>
-                        <a class="btn btn-primary edit" (click)="getId(category)" data-toggle="modal" data-target="#exampleModal">
+                        <!-- <a class="btn btn-primary edit" (click)="getId(category)" data-toggle="modal" data-target="#exampleModal">
+                            Edit
+                        </a> -->
+                        <a class="btn btn-primary edit" routerLink="/edit-category/{{category.id}}">
                             Edit
                         </a>
                         <a class="btn btn-danger" (click)="deleteCategory(category)">
@@ -47,11 +50,11 @@
 
             </tbody>
         </table>
-    </div>
+    </div> 
 </div>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true" style="margin-top:150px">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -70,7 +73,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true" style="margin-top:150px">

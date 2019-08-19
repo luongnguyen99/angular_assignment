@@ -10,6 +10,8 @@ import { CategoryComponent } from './category/category.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { CategoryManagerComponent } from './category-manager/category-manager.component';
 import { ProductManagerComponent} from './product-manager/product-manager.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 
@@ -21,12 +23,16 @@ const routes: Routes = [
   {path:'contact', component: ContactComponent},
   {path:'about', component: AboutComponent},
   {path:'manager', component: ManagerComponent},
+
   {path:'manager-categories', component: CategoryManagerComponent},
+  {path: 'edit-category/:id',component : EditCategoryComponent},
+
   {path:'manager-products', component: ProductManagerComponent},
+  { path: 'category/:category_id/edit-product/:product_id', component: EditProductComponent },
+
 
   //category
   {path:'category/:id', component: CategoryComponent},
-
   // product detail
   {path:'category/:id/products/:product_id', component: DetailProductComponent},
 

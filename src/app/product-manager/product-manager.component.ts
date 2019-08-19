@@ -46,7 +46,7 @@ export class ProductManagerComponent implements OnInit {
             // this.products[i] = element;
             this.products_sort.push(element);
             this.products_sort.sort(function (a, b) {
-              return a.id - b.id || a.name.localeCompare(b.name);
+              return a.id - b.id;
             });
             i++;
           });  
@@ -69,10 +69,10 @@ export class ProductManagerComponent implements OnInit {
     })
   }
 
-  getProductCurrent(product){
-    this.selectedProduct = product;
-    // console.log(this.selectedProduct);
-  }
+  // getProductCurrent(product){
+  //   this.selectedProduct = product;
+  //   // console.log(this.selectedProduct);
+  // }
   
   deleteProduct(product){
     this.productService.deleteProduct(product).subscribe(data =>{

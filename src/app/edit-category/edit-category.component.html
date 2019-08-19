@@ -1,0 +1,32 @@
+<div style="padding-bottom:200px">
+    <div class="blog__breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="blog__breadcrumb--content">
+                        <div class="blog__breadcrumb--title border-tree">
+                            <p class="title-base">Quản trị</p>
+                        </div>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Sửa danh mục</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-top:5%">
+        <form *ngIf="CategoryCurrent">
+            <div class="form-group">
+                <label>Tên danh mục</label>
+                <input type="text" class="form-control" [(ngModel)]="CategoryCurrent.name" value="{{CategoryCurrent.name}}" name="name">
+            </div>
+            <button (click)=saveCategory(CategoryCurrent) class="btn btn-primary">Sửa</button>
+            <a routerLink="/manager-categories" class="btn btn-danger">Hủy</a>
+        </form>
+    </div>
+</div>
+
